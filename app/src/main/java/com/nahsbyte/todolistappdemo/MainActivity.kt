@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         viewModel = ViewModelProvider(this)[TodoViewModel::class.java]
+
         adapter = TodoAdapter(
             onCheckedChange = { todo, isChecked ->
                 viewModel.updateTodo(todo.id, todo.todo, isChecked)
@@ -48,6 +49,8 @@ class MainActivity : AppCompatActivity() {
                 editTextTodo.text.clear() // Clear the input field after adding
             }
         }
+
+
 
     }
 }

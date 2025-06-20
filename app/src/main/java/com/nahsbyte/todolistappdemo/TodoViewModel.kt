@@ -36,6 +36,7 @@ class TodoViewModel : ViewModel() {
             try {
                 val response = todoRepository.addTodo(todo)
                 if (response.isSuccessful) {
+                    Log.d("TodoViewModel", "Todo added successfully: ${response.body()}")
                     fetchTodos() // Refresh the list after adding
                 } else {
                     // Handle error case
@@ -53,6 +54,7 @@ class TodoViewModel : ViewModel() {
             try {
                 val response = todoRepository.updateTodo(id, todo, completed)
                 if (response.isSuccessful) {
+                    Log.d("TodoViewModel", "Todo updated successfully")
                     fetchTodos() // Refresh the list after updating
                 } else {
                     // Handle error case
@@ -70,6 +72,7 @@ class TodoViewModel : ViewModel() {
             try {
                 val response = todoRepository.deleteTodo(id)
                 if (response.isSuccessful) {
+                    Log.d("TodoViewModel", "Todo deleted successfully")
                     fetchTodos() // Refresh the list after deleting
                 } else {
                     // Handle error case
